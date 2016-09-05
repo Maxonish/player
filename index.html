@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html ng-app="PlayerApp">
+    <head>
+        <title>Player</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
+        <link href="css/style.css" rel="stylesheet" type="text/css">
+        <script src="controllers/controllers.js"></script>
+    </head>
+    <body ng-controller="MainCtrl">
+        <div id="player" ng-mousedown="Playerstartmove($event);" ng-mousemove="Playermove($event);" >
+            <audio id="audio" src=""> 
+            </audio>
+            <div id="circle"  ng-click="Play();">
+                <div id="play">
+                </div>
+                <div id="pause">
+                </div>
+                <div id="pause2">
+                </div>
+            </div>
+            <span class="name">{{musics[index].name}}</span>
+            <i class="material-icons" id="prev" ng-click="Prev();">skip_previous</i>
+            <i class="material-icons" id="next" ng-click="Next();">skip_next</i>
+            <i id="volume" class="material-icons" ng-click="Mute();">{{strangevolume}}</i>
+            <div class="timeduration" ng-mousedown="Startmove($event);" ng-mouseup="Cursorposition2($event);" ng-mousemove="Cursorposition($event);"><div id="updateduration"></div></div>
+            <div id="volume2" ng-mousedown="Volumemove($event);" ng-mouseup="Volumeposition2($event);" ng-mousemove="Volumeposition($event);"><div id="change"></div></div>
+            <div id="time">{{currentminute}}:{{currentsec2}}{{currentsec}}<div id="time2">/{{musics[index].time}}</div></div>
+        </div>
+    </body>
+</html>
